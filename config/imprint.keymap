@@ -12,15 +12,33 @@
     combos { compatible = "zmk,combos"; };
 
     behaviors {
-        new_behavior: new_behavior {
+        hold_reset: hold_reset {
             compatible = "zmk,behavior-hold-tap";
-            label = "NEW_BEHAVIOR";
-            bindings = <&kp>, <&rgb_ug>;
+            label = "HOLD_RESET";
+            bindings = <&sys_reset>, <&none>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <120>;
-            flavor = "tap-preferred";
+            tapping-term-ms = <800>;
+            flavor = "balanced";
+        };
+
+        hold_dfu: hold_dfu {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_DFU";
+            bindings = <&bootloader>, <&none>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <800>;
+            flavor = "balanced";
+        };
+
+        reset_dfu_dance: reset_dfu_dance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "RESET_DFU_DANCE";
+            #binding-cells = <0>;
+            bindings = <&hold_reset 0 0>, <&hold_dfu 0 0>;
+
+            tapping-term-ms = <300>;
         };
     };
 
@@ -29,12 +47,12 @@
 
         WINDOWS {
             bindings = <
-&kp LG(LA(K))  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_PREV          &kp C_PLAY_PAUSE  &kp C_NEXT                  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp LS(LG(S))     &trans          &mo 3                    &kp K_LOCK
-&kp GRAVE      &kp N1             &kp N2           &kp N3              &kp N4            &kp N5                      &kp N6                &kp N7                &kp N8            &kp N9          &kp N0                   &kp MINUS
-&kp TAB        &kp B              &kp L            &kp D               &kp C             &kp V                       &kp J                 &kp F                 &kp O             &kp U           &kp COMMA                &kp EQUAL
-&kp ESCAPE     &mt LEFT_GUI N     &mt LEFT_ALT R   &mt LEFT_CONTROL T  &mt LEFT_SHIFT S  &kp G                       &kp Y                 &mt RIGHT_SHIFT H     &mt LCTRL A       &mt LEFT_ALT E  &mt RIGHT_GUI SEMICOLON  &kp SLASH
-&sk LSHFT      &kp X              &kp Q            &kp M               &kp W             &kp Z                       &kp K                 &kp P                 &kp SINGLE_QUOTE  &kp SEMICOLON   &kp PERIOD               &kp BACKSLASH
-&kp LG(SPACE)  &kp LG(DOT)        &kp LGUI         &kp LALT            &kp LCTRL                                                           &kp LEFT              &kp DOWN          &kp UP_ARROW    &kp RIGHT                &new_behavior EXCL RGB_TOG
+&kp LG(LA(K))  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_PREV          &kp C_PLAY_PAUSE  &kp C_NEXT                  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp LS(LG(S))     &reset_dfu_dance  &mo 3                    &kp K_LOCK
+&kp GRAVE      &kp N1             &kp N2           &kp N3              &kp N4            &kp N5                      &kp N6                &kp N7                &kp N8            &kp N9            &kp N0                   &kp MINUS
+&kp TAB        &kp B              &kp L            &kp D               &kp C             &kp V                       &kp J                 &kp F                 &kp O             &kp U             &kp COMMA                &kp EQUAL
+&kp ESCAPE     &mt LEFT_GUI N     &mt LEFT_ALT R   &mt LEFT_CONTROL T  &mt LEFT_SHIFT S  &kp G                       &kp Y                 &mt RIGHT_SHIFT H     &mt LCTRL A       &mt LEFT_ALT E    &mt RIGHT_GUI SEMICOLON  &kp SLASH
+&sk LSHFT      &kp X              &kp Q            &kp M               &kp W             &kp Z                       &kp K                 &kp P                 &kp SINGLE_QUOTE  &kp SEMICOLON     &kp PERIOD               &kp BACKSLASH
+&kp LG(SPACE)  &kp LG(DOT)        &kp LGUI         &kp LALT            &kp LCTRL                                                           &kp LEFT              &kp DOWN          &kp UP_ARROW      &kp RIGHT                &rgb_ug RGB_TOG
                                                                        &lt 2 SPACE       &kp BACKSPACE  &kp PG_UP    &mkp LCLK             &kp ENTER             &lt 2 SPACE
                                                                        &kp HOME          &kp END        &kp PG_DN    &mkp RCLK             &kp CAPS              &caps_word
             >;
@@ -117,10 +135,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 3>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
