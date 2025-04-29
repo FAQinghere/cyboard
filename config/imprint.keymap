@@ -19,37 +19,6 @@
 
     combos { compatible = "zmk,combos"; };
 
-    behaviors {
-        hold_reset: hold_reset {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_RESET";
-            bindings = <&sys_reset>, <&none>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <800>;
-            flavor = "balanced";
-        };
-
-        hold_dfu: hold_dfu {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_DFU";
-            bindings = <&bootloader>, <&none>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <800>;
-            flavor = "balanced";
-        };
-
-        reset_dfu_dance: reset_dfu_dance {
-            compatible = "zmk,behavior-tap-dance";
-            label = "RESET_DFU_DANCE";
-            #binding-cells = <0>;
-            bindings = <&hold_reset 0 0>, <&hold_dfu 0 0>;
-
-            tapping-term-ms = <300>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -156,10 +125,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert x scrolling,,,,,,,,
+        // invert x scrolling,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 };
