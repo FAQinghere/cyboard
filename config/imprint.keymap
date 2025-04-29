@@ -9,6 +9,7 @@
 &mt {
     flavor = "balanced";
     tapping-term-ms = <225>;
+    quick-tap-ms = <120>;
 };
 
 / {
@@ -153,10 +154,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert x scrolling,,,,,,
+        // invert x scrolling,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 };
