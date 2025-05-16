@@ -147,7 +147,7 @@
 
     mouser {
         layers = <3>;
-        input-processors = <&zip_xy_scaler 3 4>;
+        input-processors = <&zip_passthrough>;
         process-next;
     };
 };
