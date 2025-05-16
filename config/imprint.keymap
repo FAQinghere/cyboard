@@ -115,6 +115,7 @@
     };
 };
 
+
 //left hand trackball configuration
 
 &trackball_central_listener {
@@ -133,6 +134,7 @@
 
         process-next;
     };
+};
 
 // right hand trackball configuration
 
@@ -151,6 +153,4 @@
 
         process-next;
     };
-};
-
 };
