@@ -8,11 +8,11 @@
 
 &mt {
     flavor = "balanced";
-    tapping-term-ms = <225>;
-    quick-tap-ms = <140>;
+    tapping-term-ms = <210>;
+    quick-tap-ms = <150>;
 };
 
-&lt { quick-tap-ms = <140>; };
+&lt { quick-tap-ms = <150>; };
 
 / {
     chosen { zmk,matrix-transform = &imprint_function_row_full_bottom_row; };
@@ -122,6 +122,16 @@
         // activate layer 3 within 500ms of the trackball moving,,,,
         // <&zip_temp_layer 3 500>;,,
         <&zip_xy_scaler 3 4>;
+
+    scroller {
+        layers = <3>;
+        input-processors = 
+            <&zip_xy_scaler 1 16>,
+            <&zip_xy_to_scroll_mapper>,
+            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
+
+        process-next;
+    };
 };
 
 //left hand trackball configuration
@@ -134,4 +144,10 @@
         <&zip_xy_to_scroll_mapper>,
         // invert x scrolling,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
+
+    mouser {
+        layers = <3>;
+        input-processors = <&zip_xy_scaler 3 4>;
+        process-next;
+    };
 };
