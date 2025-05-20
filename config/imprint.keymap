@@ -122,8 +122,8 @@
 
     input-processors =
         // activate layer 3 within 500ms of the trackball moving,,,,,
-        // <&zip_temp_layer 3 500>;,,,
-        // <&zip_xy_scaler 1 16>,,,,
+        // <&zip_temp_layer 3 500>;,,,,
+        // <&zip_xy_scaler 1 16>,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
@@ -142,7 +142,7 @@
     input-processors =
         // activate layer 3 within 500ms of the trackball moving,,,,,
         // <&zip_temp_layer 3 500>;,,,
-        // <&zip_xy_scaler 3 4>;,,,,
+        <&zip_xy_scaler 1 1>;
 
     scroller {
         layers = <3>;
