@@ -19,6 +19,14 @@
 
     combos { compatible = "zmk,combos"; };
 
+    scroll-config {
+        compatible = "zmk,scroll-config";
+        scroll-ticks-per-scroll-unit = <1>;
+        scroll-interval-ms = <8>;
+        scroll-delay-ms = <16>;
+    };
+
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -130,7 +138,7 @@
     mouser {
         layers = <3>;
         input-processors = 
-            <&zip_xy_scaler 3 4>;
+            <&zip_xy_scaler 1 1>;
 
         // process-next;,,,,
     };
