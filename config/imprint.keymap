@@ -8,9 +8,8 @@
 
 &mt {
     flavor = "balanced";
-    tapping-term-ms = <210>;
+    tapping-term-ms = <220>;
     quick-tap-ms = <175>;
-    require-prior-idle-ms = <125>;
 };
 
 &lt { quick-tap-ms = <150>; };
@@ -20,19 +19,47 @@
 
     combos { compatible = "zmk,combos"; };
 
+    behaviors {
+        left_slow_home_row_mods: left_slow_home_row_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LEFT_SLOW_HOME_ROW_MODS";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 42 43 44 45 46 47 54 55 56 57 58 59 65 66 67 68 69>;
+        };
+
+        right_slow_home_row_mods: right_slow_home_row_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RIGHT_SLOW_HOME_ROW_MODS";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <220>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+            hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 51 52 53 60 61 62 63 64>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         WINDOWS {
             bindings = <
-&kp LG(LA(K))  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_PREV          &kp C_PLAY_PAUSE  &kp C_NEXT                    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp LS(LG(S))     &mo 5           &mo 4            &kp K_LOCK
-&kp GRAVE      &kp N1             &kp N2           &kp N3              &kp N4            &kp N5                        &kp N6                &kp N7                &kp N8            &kp N9          &kp N0           &kp MINUS
-&kp TAB        &kp B              &kp L            &kp D               &kp C             &kp V                         &kp J                 &kp F                 &kp O             &kp U           &kp COMMA        &kp EQUAL
-&kp ESCAPE     &mt LEFT_GUI N     &mt LEFT_ALT R   &mt LEFT_CONTROL T  &mt LEFT_SHIFT S  &kp G                         &kp Y                 &mt RIGHT_SHIFT H     &mt LCTRL A       &mt LEFT_ALT E  &mt RIGHT_GUI I  &kp SLASH
-&sk LSHFT      &kp X              &kp Q            &kp M               &kp W             &kp Z                         &kp K                 &kp P                 &kp SINGLE_QUOTE  &kp SEMICOLON   &kp PERIOD       &kp BACKSLASH
-&kp LG(SPACE)  &kp LG(DOT)        &kp LGUI         &kp LALT            &kp LEFT_CONTROL                                                      &kp LEFT              &kp DOWN          &kp UP_ARROW    &kp RIGHT        &rgb_ug RGB_TOG
-                                                                       &lt 2 SPACE       &lt 3 BACKSPACE  &kp PG_UP    &mkp LCLK             &lt 3 ENTER           &lt 2 SPACE
-                                                                       &kp HOME          &kp END          &kp PG_DN    &mkp RCLK             &kp CAPS              &caps_word
+&kp LG(LA(K))  &kp C_VOLUME_DOWN                    &kp C_VOLUME_UP  &kp C_PREV          &kp C_PLAY_PAUSE  &kp C_NEXT                    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp LS(LG(S))     &mo 5           &mo 4                                  &kp K_LOCK
+&kp GRAVE      &kp N1                               &kp N2           &kp N3              &kp N4            &kp N5                        &kp N6                &kp N7                &kp N8            &kp N9          &kp N0                                 &kp MINUS
+&kp TAB        &kp B                                &kp L            &kp D               &kp C             &kp V                         &kp J                 &kp F                 &kp O             &kp U           &kp COMMA                              &kp EQUAL
+&kp ESCAPE     &left_slow_home_row_mods LEFT_GUI N  &mt LEFT_ALT R   &mt LEFT_CONTROL T  &mt LEFT_SHIFT S  &kp G                         &kp Y                 &mt RIGHT_SHIFT H     &mt LCTRL A       &mt LEFT_ALT E  &right_slow_home_row_mods RIGHT_WIN I  &kp SLASH
+&sk LSHFT      &kp X                                &kp Q            &kp M               &kp W             &kp Z                         &kp K                 &kp P                 &kp SINGLE_QUOTE  &kp SEMICOLON   &kp PERIOD                             &kp BACKSLASH
+&kp LG(SPACE)  &kp LG(DOT)                          &kp LGUI         &kp LALT            &kp LEFT_CONTROL                                                      &kp LEFT              &kp DOWN          &kp UP_ARROW    &kp RIGHT                              &rgb_ug RGB_TOG
+                                                                                         &lt 2 SPACE       &lt 3 BACKSPACE  &kp PG_UP    &mkp LCLK             &lt 3 ENTER           &lt 2 SPACE
+                                                                                         &kp HOME          &kp END          &kp PG_DN    &mkp RCLK             &kp CAPS              &caps_word
             >;
         };
 
@@ -120,9 +147,9 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,
-        // <&zip_xy_scaler 1 16>,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,
+        // <&zip_xy_scaler 1 16>,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
@@ -138,14 +165,14 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,
         <&zip_xy_scaler 1 1>;
 
     scroller {
         layers = <3>;
         input-processors =
-            // <&zip_xy_scaler 1 16>,,,,,,
+            // <&zip_xy_scaler 1 16>,,,,,,,
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
