@@ -26,9 +26,9 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <250>;
             quick-tap-ms = <175>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             hold-trigger-on-release;
             hold-trigger-key-positions = <6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 42 43 44 45 46 47 54 55 56 57 58 59 65 66 67 68 69>;
         };
@@ -39,9 +39,9 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <250>;
             quick-tap-ms = <175>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             hold-trigger-on-release;
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 50 51 52 53 60 61 62 63 64>;
         };
@@ -147,9 +147,9 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,
-        // <&zip_xy_scaler 1 16>,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,,
+        // <&zip_xy_scaler 1 16>,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
@@ -165,14 +165,14 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,
         <&zip_xy_scaler 1 1>;
 
     scroller {
         layers = <3>;
         input-processors =
-            // <&zip_xy_scaler 1 16>,,,,,,,
+            // <&zip_xy_scaler 1 16>,,,,,,,,
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
