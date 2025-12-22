@@ -52,25 +52,12 @@
 
         WINDOWS {
             bindings = <
-&kp LG(LA(K))  &kp C_VOLUME_DOWN                    &kp C_VOLUME_UP  &kp C_PREV          &kp C_PLAY_PAUSE  &kp C_NEXT                    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp LS(LG(S))     &mo 6           &mo 5                                  &kp K_LOCK
+&kp LG(LA(K))  &kp C_VOLUME_DOWN                    &kp C_VOLUME_UP  &kp C_PREV          &kp C_PLAY_PAUSE  &kp C_NEXT                    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp LS(LG(S))     &mo 6           &mo 5                                  &kp C_AL_COFFEE
 &kp GRAVE      &kp N1                               &kp N2           &kp N3              &kp N4            &kp N5                        &kp N6                &kp N7                &kp N8            &kp N9          &kp N0                                 &kp MINUS
 &kp TAB        &kp B                                &kp L            &kp D               &kp C             &kp V                         &kp J                 &kp F                 &kp O             &kp U           &kp COMMA                              &kp EQUAL
 &kp ESCAPE     &left_slow_home_row_mods LEFT_GUI N  &mt LEFT_ALT R   &mt LEFT_CONTROL T  &mt LEFT_SHIFT S  &kp G                         &kp Y                 &mt RIGHT_SHIFT H     &mt LCTRL A       &mt LEFT_ALT E  &right_slow_home_row_mods RIGHT_WIN I  &kp SLASH
 &sk LSHFT      &kp X                                &kp Q            &kp M               &kp W             &kp Z                         &kp K                 &kp P                 &kp SINGLE_QUOTE  &kp SEMICOLON   &kp PERIOD                             &kp BACKSLASH
 &kp LG(SPACE)  &kp LG(DOT)                          &kp LGUI         &kp LALT            &kp LEFT_CONTROL                                                      &kp LEFT              &kp DOWN          &kp UP_ARROW    &kp RIGHT                              &rgb_ug RGB_TOG
-                                                                                         &lt 3 SPACE       &lt 4 BACKSPACE  &kp PG_UP    &mkp LCLK             &lt 4 ENTER           &lt 3 SPACE
-                                                                                         &kp HOME          &kp END          &kp PG_DN    &mkp RCLK             &kp CAPS              &caps_word
-            >;
-        };
-
-        win_qwerty {
-            bindings = <
-&kp LG(LA(K))  &kp C_VOLUME_DOWN                    &kp C_VOLUME_UP  &kp C_PREV          &kp C_PLAY_PAUSE  &kp C_NEXT                    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp LS(LG(S))  &mo 6           &mo 5                                          &kp K_LOCK
-&kp GRAVE      &kp N1                               &kp N2           &kp N3              &kp N4            &kp N5                        &kp N6                &kp N7                &kp N8         &kp N9          &kp N0                                         &kp MINUS
-&kp TAB        &kp Q                                &kp W            &kp E               &kp R             &kp T                         &kp Y                 &kp U                 &kp I          &kp O           &kp P                                          &kp EQUAL
-&kp ESCAPE     &left_slow_home_row_mods LEFT_GUI A  &mt LEFT_ALT S   &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G                         &kp H                 &mt RIGHT_SHIFT J     &mt LCTRL K    &mt LEFT_ALT L  &right_slow_home_row_mods RIGHT_WIN SEMICOLON  &kp SLASH
-&sk LSHFT      &kp Z                                &kp X            &kp C               &kp V             &kp B                         &kp N                 &kp M                 &kp COMMA      &kp PERIOD      &kp QUESTION                                   &kp BACKSLASH
-&kp LG(SPACE)  &kp LG(DOT)                          &kp LGUI         &kp LALT            &kp LEFT_CONTROL                                                      &kp LEFT              &kp DOWN       &kp UP_ARROW    &kp RIGHT                                      &rgb_ug RGB_TOG
                                                                                          &lt 3 SPACE       &lt 4 BACKSPACE  &kp PG_UP    &mkp LCLK             &lt 4 ENTER           &lt 3 SPACE
                                                                                          &kp HOME          &kp END          &kp PG_DN    &mkp RCLK             &kp CAPS              &caps_word
             >;
@@ -86,6 +73,19 @@
 &kp LC(SPACE)  &kp LC(LG(SPACE))  &kp LEFT_CONTROL  &trans  &kp LEFT_GUI                                   &trans  &trans  &trans  &trans  &trans
                                                             &trans        &trans         &trans    &trans  &trans  &trans
                                                             &kp LG(LEFT)  &kp LG(RIGHT)  &trans    &trans  &trans  &trans
+            >;
+        };
+
+        win_qwerty {
+            bindings = <
+&kp LG(LA(K))  &kp C_VOLUME_DOWN                    &kp C_VOLUME_UP  &kp C_PREV          &kp C_PLAY_PAUSE  &kp C_NEXT                    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp LS(LG(S))  &mo 6           &mo 5                                          &kp C_AL_COFFEE
+&kp GRAVE      &kp N1                               &kp N2           &kp N3              &kp N4            &kp N5                        &kp N6                &kp N7                &kp N8         &kp N9          &kp N0                                         &kp MINUS
+&kp TAB        &kp Q                                &kp W            &kp E               &kp R             &kp T                         &kp Y                 &kp U                 &kp I          &kp O           &kp P                                          &kp EQUAL
+&kp ESCAPE     &left_slow_home_row_mods LEFT_GUI A  &mt LEFT_ALT S   &mt LEFT_CONTROL D  &mt LEFT_SHIFT F  &kp G                         &kp H                 &mt RIGHT_SHIFT J     &mt LCTRL K    &mt LEFT_ALT L  &right_slow_home_row_mods RIGHT_WIN SEMICOLON  &kp SLASH
+&sk LSHFT      &kp Z                                &kp X            &kp C               &kp V             &kp B                         &kp N                 &kp M                 &kp COMMA      &kp PERIOD      &kp QUESTION                                   &kp BACKSLASH
+&kp LG(SPACE)  &kp LG(DOT)                          &kp LGUI         &kp LALT            &kp LEFT_CONTROL                                                      &kp LEFT              &kp DOWN       &kp UP_ARROW    &kp RIGHT                                      &rgb_ug RGB_TOG
+                                                                                         &lt 3 SPACE       &lt 4 BACKSPACE  &kp PG_UP    &mkp LCLK             &lt 4 ENTER           &lt 3 SPACE
+                                                                                         &kp HOME          &kp END          &kp PG_DN    &mkp RCLK             &kp CAPS              &caps_word
             >;
         };
 
@@ -131,7 +131,7 @@
         SYSTEM {
             bindings = <
 &bootloader  &trans  &trans  &trans  &trans  &trans            &trans  &trans           &trans           &trans           &trans           &bootloader
-&sys_reset   &to 0   &to 1   &to 2   &trans  &to 7             &trans  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &trans           &trans           &sys_reset
+&sys_reset   &to 0   &to 2   &to 1   &trans  &to 7             &trans  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &trans           &trans           &sys_reset
 &trans       &trans  &trans  &trans  &trans  &trans            &trans  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
 &trans       &trans  &trans  &trans  &trans  &trans            &trans  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
 &trans       &trans  &trans  &trans  &trans  &trans            &trans  &trans           &trans           &trans           &trans           &trans
@@ -160,9 +160,9 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,,,
-        // <&zip_xy_scaler 1 16>,,,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,,,,
+        // <&zip_xy_scaler 1 16>,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
@@ -178,14 +178,14 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,,,
         <&zip_xy_scaler 1 1>;
 
     scroller {
         layers = <3>;
         input-processors =
-            // <&zip_xy_scaler 1 16>,,,,,,,,,
+            // <&zip_xy_scaler 1 16>,,,,,,,,,,
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
