@@ -58,7 +58,7 @@
 &kp ESCAPE     &left_slow_home_row_mods LEFT_GUI N  &mt LEFT_ALT R   &mt LEFT_CONTROL T  &mt LEFT_SHIFT S  &kp G                            &kp Y                 &mt RIGHT_SHIFT H     &mt LCTRL A       &mt LEFT_ALT E  &right_slow_home_row_mods RIGHT_WIN I  &kp SLASH
 &sk LSHFT      &kp X                                &kp Q            &kp M               &kp W             &kp Z                            &kp K                 &kp P                 &kp SINGLE_QUOTE  &kp SEMICOLON   &kp PERIOD                             &kp BACKSLASH
 &kp LG(SPACE)  &kp LG(DOT)                          &kp LGUI         &kp LALT            &kp LEFT_CONTROL                                                         &kp LEFT              &kp DOWN          &kp UP_ARROW    &kp RIGHT                              &rgb_ug RGB_TOG
-                                                                                         &lt 3 SPACE       &lt 4 BACKSPACE  &lt 8 ESCAPE    &mkp LCLK             &lt 4 ENTER           &lt 3 SPACE
+                                                                                         &lt 3 SPACE       &lt 4 BACKSPACE  &lt 7 ESCAPE    &mkp LCLK             &lt 4 ENTER           &lt 3 SPACE
                                                                                          &kp HOME          &kp END          &kp ESCAPE      &mkp RCLK             &kp CAPS              &caps_word
             >;
         };
@@ -131,13 +131,26 @@
         SYSTEM {
             bindings = <
 &bootloader  &trans  &trans  &trans  &trans  &trans            &trans  &trans           &trans           &trans           &trans           &bootloader
-&sys_reset   &to 0   &to 2   &to 1   &trans  &to 7             &trans  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &trans           &trans           &sys_reset
+&sys_reset   &to 0   &to 2   &to 1   &trans  &to 8             &trans  &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &trans           &trans           &sys_reset
 &trans       &trans  &trans  &trans  &trans  &trans            &trans  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &trans
 &trans       &trans  &trans  &trans  &trans  &trans            &trans  &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &trans
 &trans       &trans  &trans  &trans  &trans  &trans            &trans  &trans           &trans           &trans           &trans           &trans
 &trans       &trans  &trans  &trans  &trans                            &trans           &trans           &trans           &trans           &trans
                                      &trans  &trans  &trans    &trans  &trans           &trans
                                      &trans  &trans  &trans    &trans  &trans           &trans
+            >;
+        };
+
+        NUMPAD {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans            &trans          &trans           &trans           &trans           &trans           &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &kp KP_NUMLOCK  &trans           &trans           &trans           &trans           &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &kp KP_MINUS    &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE    &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &kp KP_PLUS     &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MULTIPLY  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &kp KP_ENTER    &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans           &trans
+&trans  &trans  &trans  &trans  &trans                                    &kp BACKSPACE    &kp KP_NUMBER_0  &kp KP_DOT       &trans           &trans
+                                &trans  &trans  &trans    &trans          &trans           &trans
+                                &trans  &trans  &trans    &trans          &trans           &trans
             >;
         };
 
@@ -153,19 +166,6 @@
                                 &kp N1  &kp N2  &kp N3    &kp N4  &kp N5  &kp N6
             >;
         };
-
-        NUMPAD {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans        &trans           &trans           &trans           &trans           &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans        &trans           &trans           &trans           &trans           &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp KP_MINUS  &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_DIVIDE    &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp KP_PLUS   &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MULTIPLY  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp KP_ENTER  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans           &trans
-&trans  &trans  &trans  &trans  &trans                                  &kp BACKSPACE    &kp KP_NUMBER_0  &kp KP_DOT       &trans           &trans
-                                &trans  &trans  &trans    &trans        &trans           &trans
-                                &trans  &trans  &trans    &trans        &trans           &trans
-            >;
-        };
     };
 };
 
@@ -173,9 +173,9 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,
-        // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,,
+        // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
@@ -191,14 +191,14 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 1>;
 
     scroller {
         layers = <3>;
         input-processors =
-            // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,
+            // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,,
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
