@@ -91,14 +91,14 @@
 
         SYMBOLS {
             bindings = <
-&kp F1  &kp F2        &kp F3         &kp F4                &kp F5               &kp F6               &kp F7             &kp F8                    &kp F9                     &kp F10                &kp F11  &kp F12
-&trans  &trans        &trans         &trans                &trans               &trans               &trans             &kp LS(LT)                &kp LS(GREATER_THAN)       &trans                 &trans   &trans
-&trans  &trans        &kp LESS_THAN  &kp LS(GREATER_THAN)  &kp LS(COLON)        &kp AMPS             &kp AT_SIGN        &kp LEFT_BRACKET          &kp RIGHT_BRACKET          &kp GRAVE              &trans   &trans
-&trans  &kp QUESTION  &kp LS(MINUS)  &kp PLUS              &kp EQUAL            &kp PIPE             &kp LS(SEMICOLON)  &kp LS(LEFT_PARENTHESIS)  &kp LS(RIGHT_PARENTHESIS)  &kp LS(SQT)            &trans   &trans
-&trans  &trans        &kp FSLH       &kp LS(STAR)          &kp LS(EXCLAMATION)  &kp CARET            &kp HASH           &kp LS(LEFT_BRACE)        &kp LS(RIGHT_BRACE)        &kp LS(DOUBLE_QUOTES)  &trans   &trans
-&trans  &trans        &trans         &trans                &trans                                                       &trans                    &trans                     &trans                 &trans   &trans
-                                                           &trans               &kp DEL    &trans    &trans             &trans                    &trans
-                                                           &trans               &trans     &trans    &trans             &trans                    &trans
+&kp F1  &kp F2        &kp F3         &kp F4                &kp F5               &kp F6               &kp F7         &kp F8                    &kp F9                     &kp F10                &kp F11  &kp F12
+&trans  &trans        &trans         &trans                &trans               &trans               &trans         &kp LS(LT)                &kp LS(GREATER_THAN)       &trans                 &trans   &trans
+&trans  &trans        &kp LESS_THAN  &kp LS(GREATER_THAN)  &kp LS(COLON)        &kp AMPS             &kp AT_SIGN    &kp LEFT_BRACKET          &kp RIGHT_BRACKET          &kp GRAVE              &trans   &trans
+&trans  &kp QUESTION  &kp LS(MINUS)  &kp PLUS              &kp EQUAL            &kp PIPE             &kp SEMICOLON  &kp LS(LEFT_PARENTHESIS)  &kp LS(RIGHT_PARENTHESIS)  &kp LS(SQT)            &trans   &trans
+&trans  &trans        &kp FSLH       &kp LS(STAR)          &kp LS(EXCLAMATION)  &kp CARET            &kp HASH       &kp LS(LEFT_BRACE)        &kp LS(RIGHT_BRACE)        &kp LS(DOUBLE_QUOTES)  &trans   &trans
+&trans  &trans        &trans         &trans                &trans                                                   &trans                    &trans                     &trans                 &trans   &trans
+                                                           &trans               &kp DEL    &trans    &trans         &trans                    &trans
+                                                           &trans               &trans     &trans    &trans         &trans                    &trans
             >;
         };
 
@@ -173,9 +173,9 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,
-        // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,
+        // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
@@ -191,14 +191,14 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,
         <&zip_xy_scaler 1 1>;
 
     scroller {
         layers = <3>;
         input-processors =
-            // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,
+            // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
