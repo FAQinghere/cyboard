@@ -81,14 +81,14 @@
 
         mac_gallium {
             bindings = <
-&kp LG(LA(K))  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_PREV           &kp C_PLAY_PAUSE        &kp C_NEXT                       &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC     &kp LS(LG(S))     &mo 4            &mo 3             &kp C_AL_COFFEE
-&kp GRAVE      &kp N1             &kp N2           &kp N3               &kp N4                  &kp N5                           &kp N6                &kp N7                   &kp N8            &kp N9           &kp N0            &kp MINUS
-&kp TAB        &kp B              &kp L            &kp D                &kp C                   &kp V                            &kp J                 &kp F                    &kp O             &kp U            &kp COMMA         &kp EQUAL
-&kp ESCAPE     &hml LEFT_GUI N    &hml LEFT_ALT R  &hml LEFT_CONTROL T  &hml_fast LEFT_SHIFT S  &kp G                            &kp Y                 &hmr_fast RIGHT_SHIFT H  &hmr LCTRL A      &hmr LEFT_ALT E  &hmr RIGHT_WIN I  &kp SLASH
-&caps_word     &kp X              &kp Q            &kp M                &kp W                   &kp Z                            &kp K                 &kp P                    &kp SINGLE_QUOTE  &kp SEMICOLON    &kp PERIOD        &kp BACKSLASH
-&kp LG(SPACE)  &kp LG(DOT)        &kp LGUI         &kp LALT             &kp LEFT_CONTROL                                                               &kp LEFT                 &kp DOWN          &kp UP_ARROW     &kp RIGHT         &rgb_ug RGB_TOG
-                                                                        &lt 1 SPACE             &lt 2 BACKSPACE  &lt 5 ESCAPE    &mkp LCLK             &lt 2 ENTER              &lt 1 SPACE
-                                                                        &kp HOME                &kp END          &kp ESCAPE      &mkp RCLK             &kp CAPS                 &caps_word
+&kp LG(LA(K))  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &kp C_PREV           &kp C_PLAY_PAUSE        &kp C_NEXT                       &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC     &kp LS(LG(S))     &mo 4            &mo 3             &kp LC(LG(Q))
+&kp GRAVE      &kp N1             &kp N2            &kp N3               &kp N4                  &kp N5                           &kp N6                &kp N7                   &kp N8            &kp N9           &kp N0            &kp MINUS
+&kp TAB        &kp B              &kp L             &kp D                &kp C                   &kp V                            &kp J                 &kp F                    &kp O             &kp U            &kp COMMA         &kp EQUAL
+&kp ESCAPE     &hml LEFT_GUI N    &hml LEFT_ALT R   &hml LEFT_CONTROL T  &hml_fast LEFT_SHIFT S  &kp G                            &kp Y                 &hmr_fast RIGHT_SHIFT H  &hmr LCTRL A      &hmr LEFT_ALT E  &hmr RIGHT_WIN I  &kp SLASH
+&caps_word     &kp X              &kp Q             &kp M                &kp W                   &kp Z                            &kp K                 &kp P                    &kp SINGLE_QUOTE  &kp SEMICOLON    &kp PERIOD        &kp BACKSLASH
+&kp LC(SPACE)  &kp LG(LC(SPACE))  &kp LEFT_CONTROL  &kp LALT             &kp LEFT_GUI                                                                   &kp LEFT                 &kp DOWN          &kp UP_ARROW     &kp RIGHT         &rgb_ug RGB_TOG
+                                                                         &lt 1 SPACE             &lt 2 BACKSPACE  &lt 5 ESCAPE    &mkp LCLK             &lt 2 ENTER              &lt 1 SPACE
+                                                                         &kp HOME                &kp END          &kp ESCAPE      &mkp RCLK             &kp CAPS                 &caps_word
             >;
         };
 
@@ -176,9 +176,9 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,,,,,,,
-        // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,,,,,,,,
+        // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
@@ -194,14 +194,14 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 1>;
 
     scroller {
         layers = <3>;
         input-processors =
-            // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,,,,,,,
+            // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,,,,,,,,
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
