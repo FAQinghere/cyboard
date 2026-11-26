@@ -76,45 +76,65 @@
         };
     };
 
+    macros {
+        screenshot_window: screenshot_window {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LG(N4)) &kp SPACE>;
+            label = "SCREENSHOT_WINDOW";
+            wait-ms = <100>;
+            tap-ms = <30>;
+        };
+
+        clipboard_history: clipboard_history {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(SPACE) &kp LG(N4)>;
+            label = "CLIPBOARD_HISTORY";
+            wait-ms = <200>;
+            tap-ms = <30>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         mac_gallium {
             bindings = <
-&kp LG(LA(K))  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &kp C_PREV           &kp C_PLAY_PAUSE        &kp C_NEXT                       &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC     &kp LS(LG(S))     &mo 4            &mo 3             &kp LC(LG(Q))
-&kp GRAVE      &kp N1             &kp N2            &kp N3               &kp N4                  &kp N5                           &kp N6                &kp N7                   &kp N8            &kp N9           &kp N0            &kp MINUS
-&kp TAB        &kp B              &kp L             &kp D                &kp C                   &kp V                            &kp J                 &kp F                    &kp O             &kp U            &kp COMMA         &kp EQUAL
-&kp ESCAPE     &hml LEFT_GUI N    &hml LEFT_ALT R   &hml LEFT_CONTROL T  &hml_fast LEFT_SHIFT S  &kp G                            &kp Y                 &hmr_fast RIGHT_SHIFT H  &hmr LCTRL A      &hmr LEFT_ALT E  &hmr RIGHT_WIN I  &kp SLASH
-&caps_word     &kp X              &kp Q             &kp M                &kp W                   &kp Z                            &kp K                 &kp P                    &kp SINGLE_QUOTE  &kp SEMICOLON    &kp PERIOD        &kp BACKSLASH
-&kp LC(SPACE)  &kp LG(LC(SPACE))  &kp LEFT_CONTROL  &kp LALT             &kp LEFT_GUI                                                                   &kp LEFT                 &kp DOWN          &kp UP_ARROW     &kp RIGHT         &rgb_ug RGB_TOG
-                                                                         &lt 1 SPACE             &lt 2 BACKSPACE  &lt 5 ESCAPE    &mkp LCLK             &lt 2 ENTER              &lt 1 SPACE
-                                                                         &kp HOME                &kp END          &kp ESCAPE      &mkp RCLK             &kp CAPS                 &caps_word
+&kp C_MUTE     &kp C_VOLUME_DOWN    &kp C_VOLUME_UP   &kp C_PREV           &kp C_PLAY_PAUSE        &kp C_NEXT                                   &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC     &kp LS(LG(N5))      &mo 4            &mo 3               &kp LG(LA(K_POWER))
+&kp GRAVE      &kp N1               &kp N2            &kp N3               &kp N4                  &kp N5                                       &kp N6                &kp N7                   &kp N8              &kp N9           &kp N0              &kp MINUS
+&kp TAB        &kp B                &kp L             &kp D                &kp C                   &kp V                                        &kp J                 &kp F                    &kp O               &kp U            &kp COMMA           &kp EQUAL
+&kp ESCAPE     &hml LEFT_CONTROL N  &hml LEFT_ALT R   &hml LEFT_COMMAND T  &hml_fast LEFT_SHIFT S  &kp G                                        &kp Y                 &hmr_fast RIGHT_SHIFT H  &hmr RIGHT_GUI A    &hmr LEFT_ALT E  &hmr RCTRL I        &kp SLASH
+&caps_word     &kp X                &kp Q             &kp M                &kp W                   &kp Z                                        &kp K                 &kp P                    &kp SINGLE_QUOTE    &kp SEMICOLON    &kp PERIOD          &kp BACKSLASH
+&kp LC(SPACE)  &kp LG(LC(SPACE))    &kp LEFT_CONTROL  &kp LALT             &kp LEFT_GUI                                                                               &kp LG(X)                &kp LG(C)           &kp LG(V)        &clipboard_history  &rgb_ug RGB_TOG
+                                                                           &lt 1 SPACE             &lt 2 BACKSPACE     &lt 5 C_VOICE_COMMAND    &mkp LCLK             &lt 2 ENTER              &lt 1 SPACE
+                                                                           &kp LS(LG(N3))          &screenshot_window  &kp LS(LG(N4))           &mkp RCLK             &kp LG(Z)                &kp LS(LG(ESCAPE))
             >;
         };
 
         SYMBOLS {
             bindings = <
-&kp F1  &kp F2        &kp F3         &kp F4                &kp F5               &kp F6               &kp F7       &kp F8                    &kp F9                     &kp F10                &kp F11  &kp F12
-&trans  &trans        &trans         &trans                &trans               &trans               &trans       &kp LS(LT)                &kp LS(GREATER_THAN)       &trans                 &trans   &trans
-&trans  &trans        &kp LESS_THAN  &kp LS(GREATER_THAN)  &kp LS(COLON)        &kp AMPS             &kp AT_SIGN  &kp LEFT_BRACKET          &kp RIGHT_BRACKET          &kp GRAVE              &trans   &trans
-&trans  &kp QUESTION  &kp MINUS      &kp PLUS              &kp EQUAL            &kp PIPE             &kp HASH     &kp LS(LEFT_PARENTHESIS)  &kp LS(RIGHT_PARENTHESIS)  &kp SINGLE_QUOTE       &trans   &trans
-&trans  &trans        &kp FSLH       &kp LS(STAR)          &kp LS(EXCLAMATION)  &kp CARET            &kp DOLLAR   &kp LS(LEFT_BRACE)        &kp LS(RIGHT_BRACE)        &kp LS(DOUBLE_QUOTES)  &trans   &trans
-&trans  &trans        &trans         &trans                &trans                                                 &trans                    &trans                     &trans                 &trans   &trans
-                                                           &trans               &kp DEL    &trans    &trans       &trans                    &trans
-                                                           &trans               &trans     &trans    &trans       &trans                    &trans
+&kp F1    &kp F2        &kp F3         &kp F4            &kp F5           &kp F6               &kp F7       &kp F8                    &kp F9                     &kp F10                &kp F11  &kp F12
+&trans    &trans        &trans         &trans            &trans           &trans               &trans       &kp LS(LT)                &kp LS(GREATER_THAN)       &trans                 &trans   &trans
+&trans    &trans        &kp LESS_THAN  &kp GREATER_THAN  &kp LS(COLON)    &kp AMPS             &kp AT_SIGN  &kp LEFT_BRACKET          &kp RIGHT_BRACKET          &kp GRAVE              &trans   &trans
+&trans    &kp QUESTION  &kp MINUS      &kp PLUS          &kp EQUAL        &kp PIPE             &kp HASH     &kp LS(LEFT_PARENTHESIS)  &kp LS(RIGHT_PARENTHESIS)  &kp SINGLE_QUOTE       &trans   &trans
+&kp CAPS  &trans        &kp FSLH       &kp ASTRK         &kp EXCLAMATION  &kp CARET            &kp DOLLAR   &kp LS(LEFT_BRACE)        &kp LS(RIGHT_BRACE)        &kp LS(DOUBLE_QUOTES)  &trans   &kp CAPS
+&trans    &trans        &trans         &trans            &trans                                             &trans                    &trans                     &trans                 &trans   &trans
+                                                         &trans           &kp DEL    &trans    &trans       &trans                    &trans
+                                                         &trans           &trans     &trans    &trans       &trans                    &trans
             >;
         };
 
         NAV {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans              &trans          &trans            &trans         &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans              &trans          &trans            &trans         &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp LC(LEFT_ARROW)  &kp LC(DOWN)    &kp LC(UP_ARROW)  &kp LC(RIGHT)  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp LEFT            &kp DOWN_ARROW  &kp UP_ARROW      &kp RIGHT      &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &kp LA(LEFT)        &kp LA(DOWN)    &kp LA(UP_ARROW)  &kp LA(RIGHT)  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                                        &trans          &trans            &trans         &trans  &trans
-                                &trans  &trans  &trans    &trans              &trans          &trans
-                                &trans  &trans  &trans    &trans              &trans          &trans
+&trans  &trans  &trans    &trans    &trans     &trans                   &trans              &trans          &trans            &trans         &trans  &trans
+&trans  &trans  &trans    &trans    &trans     &trans                   &trans              &trans          &trans            &trans         &trans  &trans
+&trans  &trans  &kp HOME  &kp UP    &kp END    &kp PAGE_UP              &kp LC(LEFT_ARROW)  &kp LC(DOWN)    &kp LC(UP_ARROW)  &kp LC(RIGHT)  &trans  &trans
+&trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN            &kp LEFT            &kp DOWN_ARROW  &kp UP_ARROW      &kp RIGHT      &trans  &trans
+&trans  &trans  &trans    &trans    &trans     &trans                   &kp LA(LEFT)        &kp LA(DOWN)    &kp LA(UP_ARROW)  &kp LA(RIGHT)  &trans  &trans
+&trans  &trans  &trans    &trans    &trans                                                  &trans          &trans            &trans         &trans  &trans
+                                    &trans     &trans         &trans    &trans              &trans          &trans
+                                    &trans     &trans         &trans    &trans              &trans          &trans
             >;
         };
 
@@ -176,9 +196,9 @@
 
 &trackball_central_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,,,,,,,,
-        // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,,,,,,,,,
+        // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
         <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
@@ -194,14 +214,14 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,,,,,,,
+        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,
+        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 1>;
 
     scroller {
         layers = <3>;
         input-processors =
-            // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,,,,,,,,
+            // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,,,,,,,,,
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
 
