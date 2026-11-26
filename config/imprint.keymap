@@ -192,39 +192,28 @@
     };
 };
 
-//left hand trackball configuration
-
+// Left trackball scrolls by default and moves the cursor on Navigation.
 &trackball_central_listener {
     input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,,,,,,,,,,
-        // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,,,,,,,,,,
+        <&zip_xy_scaler 1 16>,
         <&zip_xy_to_scroll_mapper>,
-        <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
+        <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 
     mouser {
-        layers = <3>;
-        input-processors = <&zip_xy_scaler 1 1>;
-
-        // process-next;,,,,
+        layers = <2>;
+        input-processors = <&zip_xy_scaler 3 2>;
     };
 };
 
-// right hand trackball configuration
-
+// Right trackball moves the cursor by default and scrolls on Navigation.
 &trackball_peripheral_listener {
-    input-processors =
-        // activate layer 3 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,
-        // <&zip_temp_layer 3 500>;,,,,,,,,,,,,,,,,,,,,,,,,
-        <&zip_xy_scaler 1 1>;
+    input-processors = <&zip_xy_scaler 3 2>;
 
     scroller {
-        layers = <3>;
+        layers = <2>;
         input-processors =
-            // <&zip_xy_scaler 1 16>,,,,,,,,,,,,,,,,,,,,,,,,,,
+            <&zip_xy_scaler 1 16>,
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
-
-        process-next;
+            <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
     };
 };
